@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Garden Snake</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/media/media.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  </head>
+  <body class="dark">
+    <!-- Three.js background canvas -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Leaf decorations -->
+    <div class="leaf-deco leaf-deco--tl">🌿</div>
+    <div class="leaf-deco leaf-deco--br">🍃</div>
+    <div class="leaf-deco leaf-deco--mr">🌱</div>
+
+    <div class="page">
+      <div class="block">
+        <div class="scoreBox">
+          <div class="scores">
+            <div class="foodScore">
+              <div class="foodScoreRound">
+                <canvas id="iconAppleCanvas" aria-label="score"></canvas>
+              </div>
+              <span class="score">0</span>
+            </div>
+            <div class="recordScore">
+              <div class="recordScoreCup">
+                <canvas id="iconTrophyCanvas" aria-label="record"></canvas>
+              </div>
+              <span class="recordScoreNum">0</span>
+            </div>
+          </div>
+          <div class="volumeBox">
+            <button id="btnPause"><i class="fa-solid fa-pause"></i></button>
+            <button id="btnVolume">
+              <i class="fa-solid fa-volume-high"></i>
+            </button>
+            <button id="btnThemeToggleTop">
+              <i class="fa-solid fa-moon"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="gameBox">
+          <div class="board">
+            <!-- FX particle layer -->
+            <div id="fxLayer"></div>
+
+            <div class="startGameModal">
+              <h2 class="modal-eyebrow">Garden Snake</h2>
+              <p class="modal-tagline">navigate the living garden</p>
+              <button id="btnStartGame">Start</button>
+              <button id="btnSettings">Settings</button>
+            </div>
+
+            <div class="gameOverModal">
+              <h1>The snake rests…</h1>
+              <h3 class="gameOverScore"></h3>
+              <p class="goRecordMsg"></p>
+              <button id="gameOverBtnRestart">Play again</button>
+              <button id="gameOverBtnMainMenu">Main menu</button>
+            </div>
+
+            <div class="settingsModal">
+              <div class="settingsModalHeader">
+                <button id="settingsModalBackBtn">
+                  <i class="fa-solid fa-circle-arrow-left"></i>
+                </button>
+                <h2>Settings</h2>
+              </div>
+              <div class="settingsModalBtns">
+                <div class="settingsLevel">
+                  <div class="settingsLevelBtn">
+                    <button id="btnLevel">Difficulty</button>
+                  </div>
+                  <div class="levelModal">
+                    <button id="btnEasyLevel">Easy</button>
+                    <button id="btnMediumLevel">Medium</button>
+                    <button id="btnHardLevel">Hard</button>
+                  </div>
+                </div>
+                <div class="settingsTheme">
+                  <div class="settingsThemeBtn">
+                    <button id="btnTheme">Theme</button>
+                  </div>
+                  <div class="themeModal">
+                    <button id="btnThemeToggle" class="themeToggle">
+                      <span class="icon sun"
+                        ><i class="fa-solid fa-sun"></i
+                      ></span>
+                      <span class="icon moon"
+                        ><i class="fa-solid fa-moon"></i
+                      ></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="settingsSave">
+                <button id="btnSettingsSave">Ok</button>
+              </div>
+            </div>
+          </div>
+          <!-- .board -->
+
+          <div id="mobileArrowButtons">
+            <div class="mobileArrowUp">
+              <button id="up"><i class="fa-solid fa-arrow-up"></i></button>
+            </div>
+            <div class="mobileArrowSights">
+              <button id="left"><i class="fa-solid fa-arrow-left"></i></button>
+              <button id="right">
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+            <div class="mobileArrowDown">
+              <button id="down"><i class="fa-solid fa-arrow-down"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- .gameBox -->
+
+        <div class="pauseModal">
+          <button id="btnResume">Resume</button>
+          <button id="btnRestart">Restart</button>
+          <button id="btnMainMenu">Main menu</button>
+        </div>
+      </div>
+      <!-- .block -->
+    </div>
+    <!-- .page -->
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

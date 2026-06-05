@@ -1,0 +1,155 @@
+@media (max-width: 1440px) {
+  .block {
+    width: 50%;
+  }
+  .settingsModal {
+    width: 60%;
+  }
+  .gameBox {
+    height: auto;
+  }
+}
+@media (max-width: 1024px) {
+  .block {
+    width: 70%;
+  }
+  .settingsModal {
+    width: 60%;
+  }
+  .gameBox {
+    height: auto;
+  }
+}
+@media (max-width: 768px) {
+  .block {
+    width: 88%;
+  }
+  .gameBox {
+    height: auto;
+  }
+  .foodScoreRound,
+  .recordScoreCup {
+    width: 38px;
+    height: 38px;
+  }
+  .volumeBox button {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+  #btnPause {
+    font-size: 20px;
+  }
+  #btnVolume {
+    font-size: 18px;
+  }
+  #btnThemeToggleTop {
+    font-size: 16px;
+  }
+  .settingsModal {
+    width: 75%;
+  }
+  .pauseModal button {
+    height: 45px;
+  }
+}
+@media (max-width: 480px) {
+  .gameBox {
+    max-height: 100vh;
+  }
+  .page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: calc(100vh - 50px);
+  }
+  .block {
+    width: 100%;
+    padding-top: 10px;
+  }
+  .foodScoreRound,
+  .recordScoreCup {
+    width: 34px;
+    height: 34px;
+  }
+  .volumeBox {
+    gap: 10px;
+  }
+  .volumeBox button {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+  }
+  #btnStartGame {
+    width: 28%;
+  }
+  #btnSettings {
+    width: 28%;
+  }
+  #btnPause {
+    font-size: 18px;
+  }
+  #btnVolume {
+    font-size: 16px;
+  }
+  #btnThemeToggleTop {
+    font-size: 14px;
+  }
+  .gameOverModal button {
+    width: 22%;
+  }
+  #mobileArrowButtons {
+    display: flex;
+    margin-top: 10px;
+  }
+  .mobileArrowUp {
+    display: flex;
+  }
+  .mobileArrowDown {
+    margin-top: 0;
+  }
+  .scores {
+    gap: 15px;
+  }
+  .scoreBox {
+    font-size: 12px;
+  }
+  .pauseModal {
+    width: 55%;
+    height: 210px;
+    top: 63%;
+  }
+  .pauseModal button {
+    height: 45px;
+  }
+  .board {
+    padding: 15px;
+  }
+  .settingsModal {
+    width: 80%;
+  }
+  #btnVolume.muted::after {
+    width: 26px;
+  }
+  .levelModal button {
+    width: 37%;
+    height: 25px;
+    border-radius: 5px;
+    font-size: 10px;
+  }
+  #btnLevel {
+    font-size: 12px;
+  }
+  #btnTheme {
+    font-size: 12px;
+  }
+  .modal-eyebrow {
+    font-size: 20px;
+  }
+  .leaf-deco {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=media.css.map */

@@ -1,0 +1,65 @@
+// ─── Typography ─────────────────────────────────────────────────────────────
+$fontSerif: "Lora", serif;
+$fontMono: "DM Mono", monospace;
+
+// ─── Border radius ───────────────────────────────────────────────────────────
+$radius: 12px;
+
+// ─── Dark mode palette ───────────────────────────────────────────────────────
+$bgDark: #0d1a0d; // deepest forest night
+$bgHeaderDark: #0f200f;
+$bgHeader: rgb(4, 95, 4);
+$bgBoard: #1a3a1a;
+$bgBoardCellEven: #1e3d1e;
+$bgBoardCellOdd: #244e24;
+$modalBgDark: rgba(10, 22, 10, 0.96);
+$settingsBgDark: rgba(18, 34, 18, 0.97);
+$settingsHeaderDark: #1a3322;
+$levelModalBgDark: #1a3322;
+$textColorDark: #c8e6c0;
+$textOnDark: #c8e6c0;
+$textMuted: #5a8555;
+
+// ─── Light mode palette ──────────────────────────────────────────────────────
+$bgLight: #e8f5e3;
+$bgHeaderLight: #c5e8b0;
+$bgBoardLight: #cceab8;
+$modalBgLight: rgba(220, 242, 208, 0.97);
+$settingsBgLight: #f0faea;
+$settingsHeaderLight: #d4eccc;
+$levelModalBgLight: #d4eccc;
+$textColorLight: #1a3a10;
+$textOnLight: #1a3a10;
+
+// ─── Shared / accent ─────────────────────────────────────────────────────────
+$accentGreen: #52a052;
+$accentGreenHover: #3d8a3d;
+$borderAccent: #2d4a2d;
+$borderAccentLight: #8ec87a;
+$borderMuted: #5a8555;
+$gold: #c9a227;
+
+// ─── Snake colors ─────────────────────────────────────────────────────────────
+$snakeHeadDark: radial-gradient(
+  circle at 30% 30%,
+  #a8f0a0 0%,
+  #4ade80 45%,
+  #22c55e 100%
+);
+$snakeHeadLight: radial-gradient(
+  circle at 30% 30%,
+  #80e870 0%,
+  #28a820 45%,
+  #1a7a15 100%
+);
+$snakeBodyDark: linear-gradient(to bottom, #22c55e, #16a34a);
+$snakeBodyLight: linear-gradient(to bottom, #28a820, #1a7a15);
+
+// ─── Level colors ─────────────────────────────────────────────────────────────
+$levelEasy: linear-gradient(to bottom, #4ade80, #22c55e);
+$levelEasyLight: linear-gradient(to bottom, #28a820, #1a7a15);
+$levelMedium: linear-gradient(to bottom, #eab308, #ca8a04);
+$levelHard: linear-gradient(to bottom, #a855f7, #7c3aed);
+
+// ─── Legacy aliases (keeps old files compiling) ───────────────────────────────
+$bgGameBox: $bgBoard;
