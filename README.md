@@ -1,13 +1,13 @@
 # Garden Snake
 
 A reimagined classic Snake game with an organic forest theme, animated Three.js
-background, DOM particle effects, and a synthesised eat sound — no audio file
-required.
+background, real 3D score and food icons, DOM particle effects, and a
+synthesised eat sound — no audio file required.
 
 ## Tech Stack
 
 - HTML / SCSS / Vanilla JavaScript (ES modules)
-- [Three.js r128](https://threejs.org/) — animated background scene
+- [Three.js r128](https://threejs.org/) — animated background scene + 3D icons
 - Web Audio API — synthesised eat sound
 - Google Fonts — Lora (serif) + DM Mono (UI)
 - Font Awesome — icons
@@ -17,6 +17,7 @@ required.
 - Day / night themes with smooth transitions (top-bar toggle + settings toggle)
 - Three difficulty levels (Easy / Medium / Hard) with per-level snake colours
 - Animated Three.js background: floating spores + drifting vine segments
+- 3D apple food on the board, plus 3D apple and trophy icons in the score bar
 - Particle bursts on eat, scattered fragments on death
 - Pulsing food and glowing snake head
 - Per-segment opacity & scale taper so the body fades toward the tail
@@ -38,22 +39,47 @@ styles/
     _mixins.scss       ← layout / button mixins
   media/
     media.scss         ← responsive breakpoints
+    media.css          ← compiled output
+  images/              ← apple, trophy, volume icon assets
 src/
   main.js              ← bootstrap + game loop + theme sync
-  controls/            ← keyboard / mobile / teleport / board setup
+  controls/
+    keyboard.js        ← arrow key input
+    mobile.js          ← on-screen arrow buttons
+    snakeBoard.js      ← grid setup
+    teleport.js        ← edge wrap-around
   game/
-    snake/             ← move, draw, eat, collision check
-    food/              ← create, draw
-  state/               ← shared game state
+    snake/
+      move.js          ← create + move snake
+      draw.js          ← render snake (taper + glow)
+      eat.js           ← grow + score on eat
+      isEat.js         ← head/food collision check
+    food/
+      create.js        ← spawn food in empty cell
+      draw.js          ← render food
+  state/
+    state.js           ← shared game state
   settings/
     index.js           ← settings barrel
-    levels/            ← level data, records, wall collision, colours
+    settingsUI.js      ← settings modal wiring
+    levels/
+      data.js              ← level definitions (speed, colour)
+      active.js            ← currently selected level
+      color.js             ← apply per-level snake colour
+      records.js           ← load saved records
+      recordScore.js       ← format record display
+      storage.js           ← localStorage read/write
+      unlocked.js          ← unlock gate per level
+      updateRecord.js      ← persist new high score
+      checkWallCollision.js ← Hard-mode wall death
     sound/
       synth.js         ← Web Audio eat sound
       toggle.js        ← mute persistence
-    theme/             ← light / dark mode
+    theme/
+      mode.js          ← light / dark mode
   three/
     background.js      ← Three.js spore + vine background scene
+    icons3d.js         ← 3D apple, trophy, and board food meshes
   ui/
     buttons.js         ← centralised DOM references
     modals.js          ← modal show/hide helpers
@@ -62,7 +88,8 @@ src/
     restartGame.js     ← restart helper
     eventsUI.js        ← UI button wiring
     particles.js       ← DOM particle FX (eat / death)
-sound/                 ← (legacy, no longer required)
+  utils/
+    constants.js       ← shared constants
 ```
 
 ## Quick Start
@@ -101,9 +128,15 @@ sound/                 ← (legacy, no longer required)
 ## Three.js
 
 Loaded from cdnjs (`three.min.js r128`) as a global. `src/three/background.js`
-reads the global `THREE` directly, so there is no bundler requirement. The
-background canvas is fixed behind the page and pointer-events:none, so it
-never interferes with gameplay.
+and `src/three/icons3d.js` read the global `THREE` directly, so there is no
+bundler requirement.
+
+- `background.js` renders a fixed full-page canvas of drifting spores and vine
+  segments. The canvas is `pointer-events: none` and sits behind the page, so
+  it never interferes with gameplay.
+- `icons3d.js` mounts three small WebGL canvases: a 3D apple in the score box,
+  a 3D trophy for the record, and a 3D apple that follows the food cell on the
+  board.
 
 ## Live Demo
 
